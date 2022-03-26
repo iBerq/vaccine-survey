@@ -66,7 +66,7 @@ class HomeScreen extends Component {
                   justifyContent: "center",
                   borderWidth: 2,
                   borderColor: "#003d50",
-                  borderRadius: "20",
+                  borderRadius: 20,
                   backgroundColor: "#007da5",
                 }}
               >
@@ -117,7 +117,7 @@ class HomeScreen extends Component {
                 justifyContent: "center",
                 borderWidth: 2,
                 borderColor: "#003d50",
-                borderRadius: "20",
+                borderRadius: 20,
                 backgroundColor: "#007da5",
               }}
             >
