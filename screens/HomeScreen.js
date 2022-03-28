@@ -144,6 +144,7 @@ class HomeScreen extends Component {
                   fontWeight: "bold",
                   color: "white",
                 }}
+                accessibilityLabel={"FilltheForm"}
               >
                 Fill the Form
               </Text>
