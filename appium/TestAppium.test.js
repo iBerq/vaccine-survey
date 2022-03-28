@@ -65,16 +65,21 @@ test("Form Test", async () => {
   const CitySelect = await driver.$("~CitySelect");
   await CitySelect.waitForExist();
   CitySelect.click();
+  await driver.pause(3000);
+  const Adiyaman = await driver.findElement('xpath', "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup");
+  await Adiyaman.waitForExist();
+  Adiyaman.click();
+  await driver.pause(3000);
 
   const GenderSelect = await driver.$("~GenderSelect");
   const VaccineSelect = await driver.$("~VaccineSelect");
   const SideEffectSelect = await driver.$("~SideEffectSelect");
   const PCRPosSelect = await driver.$("~PCRPosSelect");
   
-  const backToHomeScreenButton = await driver.$("~Navigate up");
+  /*const backToHomeScreenButton = await driver.$("~Navigate up");
   await backToHomeScreenButton.waitForExist();
   backToHomeScreenButton.click();
-  await driver.pause(3000);
+  await driver.pause(3000);*/
   // ----------------------------------------------------------------------
 
   /*
