@@ -9,7 +9,7 @@ Spring'22 Bilkent University CS458: Software Verification and Validation Project
 
 
 # Setup
-- Downloading the project and open a terminal. 
+- Download the project and open a terminal. 
 - Run command "yarn install" on your terminal at the project folder.
 - Run command "expo doctor --fix-dependencies" on the terminal at the project folder.
 
