@@ -59,6 +59,7 @@ class HomeScreen extends Component {
                 onPress={() =>
                   this.props.navigation.navigate("FormScreen", { type: "edit" })
                 }
+                accessibilityLabel={"EdittheForm"}
                 style={{
                   width: "60%",
                   height: "60%",

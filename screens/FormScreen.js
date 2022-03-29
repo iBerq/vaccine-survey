@@ -474,7 +474,6 @@ class FormScreen extends Component {
                       fontWeight: "bold",
                       color: "white",
                     }}
-                    accessibilityLabel={"SubmitButton"}
                   >
                     Submit
                   </Text>
