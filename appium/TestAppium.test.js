@@ -13,7 +13,6 @@ beforeAll(async () => {
       deviceName: "Android Emulator",
       appium: { connectHardwareKeyboard: true }
     }
-    // logLevel: "silent"
   });
 });
 
@@ -27,12 +26,14 @@ afterAll(async () => {
 test("Form Test", async () => {
   await driver.pause(2000);
 
+  /*
   // Test Case 1 - Trying to click Edit the form button before filling any form
   const EdittheFormButton = await driver.$("~EdittheForm");
   await EdittheFormButton.waitForExist();
   EdittheFormButton.click();
   await driver.pause(1000);
   // ----------------------------------------------------------------------
+  */
 
   /*
   // Test Case 2 - Try to Click Submit Button Before Filling the Form Fields
@@ -49,7 +50,33 @@ test("Form Test", async () => {
   */
 
   /*
-  // Test Case 3 - Click Edit Form Button After Filling the Form and See Whether the Form is filled or not
+  // Test Case 3 - Fill some fields of the form do not submit and come back to home page, 
+  // then click on fill the form button and see whether the previous fields stay
+  const filltheFormButton = await driver.$("~FilltheForm");
+  await filltheFormButton.waitForExist();
+  filltheFormButton.click();
+  await driver.pause(3000);
+
+  const nameInput = await driver.$("~NameField");
+  await nameInput.clearValue();
+  await nameInput.setValue("Ege");
+
+  const SurnameInput = await driver.$("~SurnameField");
+  await SurnameInput.clearValue();
+  await SurnameInput.setValue("Sahin");
+
+  const backToHomeScreenButton = await driver.$("~Navigate up");
+  await backToHomeScreenButton.waitForExist();
+  backToHomeScreenButton.click();
+  await driver.pause(3000);
+
+  filltheFormButton.click();
+  await driver.pause(3000);
+  // ----------------------------------------------------------------------
+  */
+
+  /*
+  // Test Case 4 - Click Edit Form Button After Filling the Form and See Whether the Form is filled or not
   const filltheFormButton = await driver.$("~FilltheForm");
   await filltheFormButton.waitForExist();
   filltheFormButton.click();
@@ -139,7 +166,7 @@ test("Form Test", async () => {
   */
 
   /*
-  // Test Case 4 - Entering Numbers For Name and Surname Fields
+  // Test Case 5 - Entering Numbers For Name and Surname Fields
   const filltheFormButton = await driver.$("~FilltheForm");
   await filltheFormButton.waitForExist();
   filltheFormButton.click();

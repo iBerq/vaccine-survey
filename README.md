@@ -24,7 +24,7 @@ Spring'22 Bilkent University CS458: Software Verification and Validation Project
 - After the above processes are completed. Run command "yarn jest" on the new terminal and the test will be runned and result will be returned.
 
 # Description
-- This app have three different screens are they are in the screens folder.
+- This app have three different screens and they are in the screens folder.
 - The appium folder has one file with name "TestAppium.test.js". All test cases in this file.
 - There is a test function in this file and test cases are in it.
 - All test cases are commented.
