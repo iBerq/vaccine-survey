@@ -98,10 +98,6 @@ test("Form Test", async () => {
   await okButton.waitForExist();
   okButton.click();
   await driver.pause(1000);
-  const selectButton = await driver.$("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView");
-  await selectButton.waitForExist();
-  selectButton.click();
-  await driver.pause(1000);
 
   const CitySelect = await driver.$("~CitySelect");
   await CitySelect.waitForExist();
@@ -187,10 +183,6 @@ test("Form Test", async () => {
   const okButton = await driver.$("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[2]");
   await okButton.waitForExist();
   okButton.click();
-  await driver.pause(1000);
-  const selectButton = await driver.$("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView");
-  await selectButton.waitForExist();
-  selectButton.click();
   await driver.pause(1000);
 
   const CitySelect = await driver.$("~CitySelect");
