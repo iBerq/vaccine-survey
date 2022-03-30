@@ -473,107 +473,133 @@ class FormScreen extends Component {
               </TouchableOpacity>
             ) : null}
           </View>
-          <Modal
-            style={{ width: "100%", height: "100%" }}
-            visible={this.state.showDatePicker}
-            animationType="slide"
-            transparent={true}
-          >
-            <SafeAreaView
-              style={{
-                padding: "5%",
-                backgroundColor: "#007da5",
-                left: "0%",
-                right: "0%",
-                bottom: "0%",
-                alignItems: "center",
-                position: "absolute",
-              }}
+          {Platform.OS === "ios" ? (
+            <Modal
+              style={{ width: "100%", height: "100%" }}
+              visible={this.state.showDatePicker}
+              animationType="slide"
+              transparent={true}
             >
-              <View
+              <SafeAreaView
                 style={{
-                  paddingTop: "5%",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  width: "100%",
-                  paddingHorizontal: "20%",
+                  padding: "5%",
+                  backgroundColor: "#007da5",
+                  left: "0%",
+                  right: "0%",
+                  bottom: "0%",
+                  alignItems: "center",
+                  position: "absolute",
                 }}
               >
-                <TouchableOpacity
-                  onPress={() => {
-                    this.toggleDatePickerDisplayed();
-                    this.checkInputs();
-                  }}
+                <View
                   style={{
-                    width: "40%",
-                    paddingBottom: "2%",
-                    borderBottomWidth: 0.3,
-                    borderBottomColor: "white",
+                    paddingTop: "5%",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    paddingHorizontal: "20%",
                   }}
                 >
-                  <Text
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.toggleDatePickerDisplayed();
+                      this.checkInputs();
+                    }}
                     style={{
-                      color: "white",
-                      fontSize: Dimensions.get("window").width / 20,
-                      width: "100%",
-                      textAlign: "center",
+                      width: "40%",
+                      paddingBottom: "2%",
+                      borderBottomWidth: 0.3,
+                      borderBottomColor: "white",
                     }}
                   >
-                    Cancel
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    if (chosenDate != null) {
-                      this._isMounted &&
-                        this.setState(
-                          { birthdate: chosenDate },
-                          this.checkInputs
-                        );
-                      this.toggleDatePickerDisplayed();
-                    } else {
-                      if (!this.state.birthdate)
+                    <Text
+                      style={{
+                        color: "white",
+                        fontSize: Dimensions.get("window").width / 20,
+                        width: "100%",
+                        textAlign: "center",
+                      }}
+                    >
+                      Cancel
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => {
+                      if (chosenDate != null) {
                         this._isMounted &&
                           this.setState(
-                            { birthdate: new Date() },
+                            { birthdate: chosenDate },
                             this.checkInputs
                           );
-                      this.toggleDatePickerDisplayed();
-                    }
-                  }}
-                  style={{
-                    width: "40%",
-                    paddingBottom: "2%",
-                    borderBottomWidth: 0.3,
-                    borderBottomColor: "white",
-                  }}
-                >
-                  <Text
+                        this.toggleDatePickerDisplayed();
+                      } else {
+                        if (!this.state.birthdate)
+                          this._isMounted &&
+                            this.setState(
+                              { birthdate: new Date() },
+                              this.checkInputs
+                            );
+                        this.toggleDatePickerDisplayed();
+                      }
+                    }}
                     style={{
-                      color: "white",
-                      fontSize: Dimensions.get("window").width / 20,
-                      width: "100%",
-                      textAlign: "center",
+                      width: "40%",
+                      paddingBottom: "2%",
+                      borderBottomWidth: 0.3,
+                      borderBottomColor: "white",
                     }}
                   >
-                    Select
-                  </Text>
-                </TouchableOpacity>
-              </View>
-              <DatePicker
-                display="spinner"
-                textColor="white"
-                style={{ width: "100%" }}
-                value={this.state.birthdate ? this.state.birthdate : new Date()}
-                mode="date"
-                locale="en-GB"
-                maximumDate={this.state.maxDate}
-                onChange={(event, date) => {
-                  chosenDate = date;
-                }}
-              />
-            </SafeAreaView>
-          </Modal>
+                    <Text
+                      style={{
+                        color: "white",
+                        fontSize: Dimensions.get("window").width / 20,
+                        width: "100%",
+                        textAlign: "center",
+                      }}
+                    >
+                      Select
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <DatePicker
+                  display="spinner"
+                  textColor="white"
+                  style={{ width: "100%" }}
+                  value={
+                    this.state.birthdate ? this.state.birthdate : new Date()
+                  }
+                  mode="date"
+                  locale="en-GB"
+                  maximumDate={this.state.maxDate}
+                  onChange={(event, date) => {
+                    chosenDate = date;
+                  }}
+                />
+              </SafeAreaView>
+            </Modal>
+          ) : this.state.showDatePicker ? (
+            <DatePicker
+              textColor="white"
+              style={{ width: "100%" }}
+              value={this.state.birthdate ? this.state.birthdate : new Date()}
+              mode="date"
+              locale="en-GB"
+              maximumDate={this.state.maxDate}
+              onChange={(date) => {
+                this.toggleDatePickerDisplayed();
+                if (
+                  date.nativeEvent.timestamp != null ||
+                  date.nativeEvent.timestamp != undefined
+                )
+                  this._isMounted &&
+                    this.setState({
+                      birthdate: new Date(
+                        date.nativeEvent.timestamp.toString()
+                      ),
+                    });
+              }}
+            />
+          ) : null}
           <Modal
             style={{ width: "100%" }}
             visible={this.state.showPickerModal}
