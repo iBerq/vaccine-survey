@@ -59,6 +59,7 @@ class HomeScreen extends Component {
                 onPress={() =>
                   this.props.navigation.navigate("FormScreen", { type: "edit" })
                 }
+                accessibilityLabel={"EdittheForm"}
                 style={{
                   width: "60%",
                   height: "60%",
@@ -144,6 +145,7 @@ class HomeScreen extends Component {
                   fontWeight: "bold",
                   color: "white",
                 }}
+                accessibilityLabel={"FilltheForm"}
               >
                 Fill the Form
               </Text>

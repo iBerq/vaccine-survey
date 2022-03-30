@@ -74,6 +74,7 @@ class SuccessfulSubmitScreen extends Component {
                 borderRadius: 20,
                 backgroundColor: "#007da5",
               }}
+              accessibilityLabel={"GotoMainPage"}
             >
               <Text
                 style={{

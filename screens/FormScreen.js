@@ -227,6 +227,7 @@ class FormScreen extends Component {
               }}
               placeholder="Name"
               textContentType="name"
+              accessibilityLabel={"NameField"}
               value={this.state.name}
               onChangeText={(value) =>
                 this._isMounted &&
@@ -245,6 +246,7 @@ class FormScreen extends Component {
               }}
               placeholder="Surname"
               textContentType="name"
+              accessibilityLabel={"SurnameField"}
               value={this.state.surname}
               onChangeText={(value) =>
                 this._isMounted &&
@@ -271,6 +273,7 @@ class FormScreen extends Component {
                   height: Dimensions.get("window").height / 20,
                 }}
                 placeholder="Birth Date"
+                accessibilityLabel={"BirthDateSelect"}
                 editable={false}
                 pointerEvents="none"
                 value={
@@ -309,6 +312,7 @@ class FormScreen extends Component {
                   height: Dimensions.get("window").height / 20,
                 }}
                 placeholder="City"
+                accessibilityLabel={"CitySelect"}
                 editable={false}
                 pointerEvents="none"
                 value={this.state.city}
@@ -339,6 +343,7 @@ class FormScreen extends Component {
                   height: Dimensions.get("window").height / 20,
                 }}
                 placeholder="Gender"
+                accessibilityLabel={"GenderSelect"}
                 editable={false}
                 pointerEvents="none"
                 value={this.state.gender}
@@ -369,6 +374,7 @@ class FormScreen extends Component {
                   height: Dimensions.get("window").height / 20,
                 }}
                 placeholder="Vaccine type you applied"
+                accessibilityLabel={"VaccineSelect"}
                 editable={false}
                 pointerEvents="none"
                 value={this.state.vaccineType}
@@ -400,6 +406,7 @@ class FormScreen extends Component {
                 }}
                 placeholder="Any side effects after vaccination"
                 editable={false}
+                accessibilityLabel={"SideEffectSelect"}
                 pointerEvents="none"
                 value={this.state.sideEffects}
               />
@@ -433,6 +440,7 @@ class FormScreen extends Component {
                 }}
                 placeholder="Any PCR positive cases and Covid-19 symptoms after 3rd vaccination"
                 editable={false}
+                accessibilityLabel={"PCRPosSelect"}
                 pointerEvents="none"
                 value={this.state.positiveAndSymptoms}
               />
